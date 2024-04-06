@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     public float speed;
     Vector3 movementPlayer;
+    public int life = 10;
 
     [Header("Jump")]
     public bool suelo;
