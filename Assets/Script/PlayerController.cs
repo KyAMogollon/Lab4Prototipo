@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     Vector3 movementPlayer;
     public int life = 10;
+    public bool canChangeColor = false;
 
     [Header("Jump")]
     public bool suelo;
@@ -25,12 +26,6 @@ public class PlayerController : MonoBehaviour
         _sp = GetComponent<SpriteRenderer>();
         _rb = GetComponent<Rigidbody2D>();
     }
-
-    private void Update()
-    {
-
-    }
-    // Update is called once per frame
     private void FixedUpdate()
     {
         suelo = Physics2D.Raycast(transform.position, Vector3.down, 0.5f, mylayermask);
@@ -51,7 +46,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnColorRed(InputAction.CallbackContext value)
     {
-        if(value.started)
+        if(value.started && canChangeColor== false)
         {
             _sp.color = Color.red;
             images[0].color = new Color32(255, 0, 0, 255);
@@ -61,7 +56,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnColorBlue(InputAction.CallbackContext value)
     {
-        if (value.started)
+        if (value.started && canChangeColor == false)
         {
             _sp.color=Color.blue;
             images[1].color = new Color32(0, 255, 0, 100);
@@ -71,7 +66,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnColorGreen(InputAction.CallbackContext value)
     {
-        if (value.started)
+        if (value.started && canChangeColor == false)
         {
             _sp.color = Color.green;
             images[1].color = new Color32(0, 255, 0, 255);
@@ -90,13 +85,19 @@ public class PlayerController : MonoBehaviour
                 currentSalto++;
                 isJump = false;
             }
-
+            if(currentSalto >1)
+            {
+                currentSalto = 0;
+            }
         }
         else
         {
             if (currentSalto == 1)
             {
                 _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                currentSalto = 0;
+            }else if(currentSalto >= 1)
+            {
                 currentSalto = 0;
             }
         }

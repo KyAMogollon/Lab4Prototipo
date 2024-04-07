@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coins : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    public int value;
+    public int health;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            PointSystem.GainPoints?.Invoke(value);
-            PointSystem.UpdatePoints?.Invoke();
+            HealthSystem.ModifyHealth?.Invoke(health);
+            HealthSystem.UpdateHealth?.Invoke();
             Destroy(gameObject);
         }
     }

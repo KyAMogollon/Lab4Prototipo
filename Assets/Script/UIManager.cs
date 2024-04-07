@@ -10,18 +10,15 @@ public class UIManager : MonoBehaviour
     public Text time;
     public Canvas winCanvas;
     public Canvas looseCanvas;
+    [SerializeField] PlayerController player;
 
     // Start is called before the first frame update
     void Start()
     {
         coins.text = "Coin: " + 0;
+        life.text = "Life: " + player.life;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void UpdateTimeText(int currentTime)
     {
         time.text = "Time: " + currentTime;
@@ -29,6 +26,20 @@ public class UIManager : MonoBehaviour
     public void UpdateCoinText(int coin)
     {
         coins.text = "Coin: " + coin;
+    }
+    public void UpdateLifeText(int vida)
+    {
+        int currentLife = player.life + vida; 
+        life.text = "Life: " + currentLife;
+        if(currentLife <= 0) 
+        {
+            ActivateLoose();
+        }
+    }
+    public void ActivateLoose()
+    {
+        GameManager.OnLoose?.Invoke();
+        looseCanvas.gameObject.SetActive(true);
     }
 
 }
