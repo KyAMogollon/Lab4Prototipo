@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public Canvas winCanvas;
     public Canvas looseCanvas;
     [SerializeField] PlayerController player;
-
+    [SerializeField] SaveData saveData;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     public void UpdateTimeText(int currentTime)
     {
         time.text = "Time: " + currentTime;
+        saveData.SaveTime(currentTime);
     }
     public void UpdateCoinText(int coin)
     {    
@@ -30,6 +31,7 @@ public class UIManager : MonoBehaviour
         {
             ActivateWin();
         }
+        saveData.SaveCoin(coin);
     }
     public void UpdateLifeText(int vida)
     {

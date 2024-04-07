@@ -102,12 +102,4 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    void ValidateChangeColor()
-    {
-
-    }
-    void StopController()
-    {
-
-    }
 }

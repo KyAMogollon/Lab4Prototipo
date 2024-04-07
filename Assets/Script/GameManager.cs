@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1.0f;
         OnLoose = OnLooseAction;
         OnWin = OnWinAction;
     }
@@ -62,6 +63,10 @@ public class GameManager : MonoBehaviour
     public void OnWinAction()
     {
         Time.timeScale = 0;
+    }
+    public void ResultsScene()
+    {
+        SceneManager.LoadScene("Resultados");
     }
 
 }
