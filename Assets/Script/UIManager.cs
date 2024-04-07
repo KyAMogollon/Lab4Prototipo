@@ -24,8 +24,12 @@ public class UIManager : MonoBehaviour
         time.text = "Time: " + currentTime;
     }
     public void UpdateCoinText(int coin)
-    {
+    {    
         coins.text = "Coin: " + coin;
+        if(coin >= 40)
+        {
+            ActivateWin();
+        }
     }
     public void UpdateLifeText(int vida)
     {
@@ -35,6 +39,11 @@ public class UIManager : MonoBehaviour
         {
             ActivateLoose();
         }
+    }
+    public void ActivateWin()
+    {
+        GameManager.OnWin?.Invoke();
+        winCanvas.gameObject.SetActive(true);
     }
     public void ActivateLoose()
     {
