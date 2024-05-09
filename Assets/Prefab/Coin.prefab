@@ -133,5 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ebe668218ed3884cb10a2a948acf71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UI: {fileID: 0}
   value: 10
+  GainPoints: {fileID: 11400000, guid: 37c4bc490781a4d4689500667d1bb262, type: 2}
+  UpdateCoin: {fileID: 11400000, guid: 764f990a34bb3e947a4904e3823d4128, type: 2}

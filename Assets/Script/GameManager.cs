@@ -10,16 +10,15 @@ public class GameManager : MonoBehaviour
 {
     float time;
     bool pause;
-    public static Action OnWin;
-    public static Action OnLoose;
+    public GameEvent OnWin;
+    public GameEvent OnLoose;
     [SerializeField] UIManager _ui;
 
 
     private void Start()
     {
         Time.timeScale = 1.0f;
-        OnLoose = OnLooseAction;
-        OnWin = OnWinAction;
+        
     }
     // Update is called once per frame
     void Update()

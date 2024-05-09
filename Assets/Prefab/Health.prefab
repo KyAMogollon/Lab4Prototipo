@@ -143,5 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51f6e41289fc7d4780cd7704a77a6a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UI: {fileID: 0}
   health: 1
+  ModifyHealth: {fileID: 11400000, guid: 03fc328a44286f54485588594cb77372, type: 2}
+  UpdateHealth: {fileID: 11400000, guid: d3dcdb123ebb5df4682b0d87bcece695, type: 2}

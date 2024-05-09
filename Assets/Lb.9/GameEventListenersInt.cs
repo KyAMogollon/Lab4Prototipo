@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-public class GameEventListeners : MonoBehaviour
+public class GameEventListenersInt : MonoBehaviour
 {
-    public GameEvent Event;
-    public UnityEvent Response;
+    public GameEventInt Event;
+    public UnityEvent<int> Response;
 
     private void OnEnable()
     {
@@ -16,9 +16,9 @@ public class GameEventListeners : MonoBehaviour
         Event.Unregister(this);
     }
 
-    public void OnEventRaised()
+    public void OnEventRaised(int value)
     {
-        Response.Invoke();
+        Response.Invoke(value);
     }
 
 }

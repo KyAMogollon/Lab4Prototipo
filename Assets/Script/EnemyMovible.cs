@@ -9,6 +9,9 @@ public class EnemyMovible : MonoBehaviour
     public Transform[] _transform;
     public int index=0;
     public int speed;
+    public GameEventInt ModifyHealth;
+    public GameEvent UpdateHealth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +36,8 @@ public class EnemyMovible : MonoBehaviour
             }
         }else if (collision.gameObject.CompareTag("Player"))
         {
-            HealthSystem.ModifyHealth?.Invoke(-value);
-            HealthSystem.UpdateHealth?.Invoke();
+            ModifyHealth.Raise(-value);
+            UpdateHealth.Raise();
         }
         
 

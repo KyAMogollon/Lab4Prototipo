@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public Canvas looseCanvas;
     [SerializeField] PlayerController player;
     [SerializeField] SaveData saveData;
+    [SerializeField] GameManager _gm;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,12 +45,12 @@ public class UIManager : MonoBehaviour
     }
     public void ActivateWin()
     {
-        GameManager.OnWin?.Invoke();
+        _gm.OnWin.Raise();
         winCanvas.gameObject.SetActive(true);
     }
     public void ActivateLoose()
     {
-        GameManager.OnLoose?.Invoke();
+        _gm.OnLoose.Raise();
         looseCanvas.gameObject.SetActive(true);
     }
 

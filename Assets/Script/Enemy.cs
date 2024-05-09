@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour
     public int value;
     public SpriteRenderer _sp;
     public PlayerController player;
+    public GameEvent UpdateHealth;
+    public GameEventInt ModifyHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,8 +22,8 @@ public class Enemy : MonoBehaviour
             if(collision.gameObject.GetComponent<SpriteRenderer>().color != _sp.color)
             {
                 Debug.Log("Me hice daño");
-                HealthSystem.ModifyHealth?.Invoke(-value);
-                HealthSystem.UpdateHealth?.Invoke();
+                ModifyHealth.Raise(-value);
+                UpdateHealth.Raise();
                 player.canChangeColor = true;
             }
             else
